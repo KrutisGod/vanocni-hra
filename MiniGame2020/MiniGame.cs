@@ -38,10 +38,10 @@ namespace MiniGame2020
             _ctverecek = new Ctverecek(
                 50, 5,
                 new Vector2((_sirkaOkna - 50) / 2, (_vyskaOkna - 50) / 2),
-                new SmeroveOvladani(Keys.Left, Keys.Right, Keys.Up, Keys.Down),
+                new SmeroveOvladani(Keys.Left, Keys.Right, Keys.Up, Keys.Down, Keys.B),
                 new Rectangle(0, 0, _sirkaOkna, _vyskaOkna),
-                Color.Black, GraphicsDevice
-            );
+                Color.BlueViolet, GraphicsDevice
+            ); ; ; ;
         }
 
         protected override void Update(GameTime gameTime)
