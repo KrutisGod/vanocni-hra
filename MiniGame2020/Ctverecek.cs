@@ -61,25 +61,27 @@ namespace MiniGame2020
                     _pozice += _rychlost * 3 * Vector2.Normalize(_smer);
 
             }
+            else
+            {
+                Vector2 smerPohybu = Vector2.Zero;
 
-            Vector2 smerPohybu = Vector2.Zero;
-
-            if (klavesnice.IsKeyDown(_ovladaniPohybu.Doprava))
-                smerPohybu += Vector2.UnitX;
-            if (klavesnice.IsKeyDown(_ovladaniPohybu.Doleva))
-                smerPohybu -= Vector2.UnitX;
-            if (klavesnice.IsKeyDown(_ovladaniPohybu.Nahoru))
-                smerPohybu -= Vector2.UnitY;
-            if (klavesnice.IsKeyDown(_ovladaniPohybu.Dolu))
-                smerPohybu += Vector2.UnitY;
-            _smer = smerPohybu;
+                if (klavesnice.IsKeyDown(_ovladaniPohybu.Doprava))
+                    smerPohybu += Vector2.UnitX;
+                if (klavesnice.IsKeyDown(_ovladaniPohybu.Doleva))
+                    smerPohybu -= Vector2.UnitX;
+                if (klavesnice.IsKeyDown(_ovladaniPohybu.Nahoru))
+                    smerPohybu -= Vector2.UnitY;
+                if (klavesnice.IsKeyDown(_ovladaniPohybu.Dolu))
+                    smerPohybu += Vector2.UnitY;
+                _smer = smerPohybu;
 
 
-            if (smerPohybu != Vector2.Zero)
-                _pozice += _rychlost * Vector2.Normalize(smerPohybu);
-            
+                if (smerPohybu != Vector2.Zero)
+                    _pozice += _rychlost * Vector2.Normalize(smerPohybu);
+
                 _pozice = Vector2.Clamp(_pozice, new Vector2(_omezeniPohybu.Left, _omezeniPohybu.Top), new Vector2(_omezeniPohybu.Right - _velikost, _omezeniPohybu.Bottom - _velikost));
-        }
+            }   
+        }   
 
         public void Aktualizovat(KeyboardState klavesnice)
         {
